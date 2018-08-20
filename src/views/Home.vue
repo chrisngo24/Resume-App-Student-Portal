@@ -11,7 +11,7 @@
 export default {
   data: function() {
     return {
-      message: "Student Portal"
+      message: "Student Portal!!!"
     };
   },
   created: function() {},
