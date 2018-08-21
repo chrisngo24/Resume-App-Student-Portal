@@ -6,13 +6,12 @@
       <h3>Name: {{ first_name }} {{ last_name }}</h3>
       <h4>Email: {{ email }}</h4>
       <h5>Phone: {{ phone_number }}</h5>
-      <h6>Bio: {{ bio }}</h6>
+      <h6>Bio: {{ short_bio }}</h6>
       <ul>
-        <li>{{ linkedin }}</li>
-        <li>{{ twitter }}</li>
-        <li>{{ github }}</li>
-        <li>{{ resume }}</li>
-        <li>{{ linkedin }}</li>
+        <li>LinkedIn: {{ linkedin_url }}</li>
+        <li>Twitter: {{ twitter_handle }}</li>
+        <li>Github: {{ github_url }}</li>
+        <li>Resume: {{ resume }}</li>
       </ul>
     </div>
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -52,12 +51,12 @@ export default {
       last_name: "Lopez", 
       email: "jenny@email.com", 
       phone_number: "(555) 867-5309", 
-      bio: "My name is Jenny!, I'm from the block", 
-      linkedin: "URL",
-      twitter: "URL",
-      website: "URL", 
-      resume: "URL", 
-      github: "URL",
+      short_bio: "My name is Jenny!, I'm from the block", 
+      linkedin_url: "LinkedIn URL",
+      twitter_handle: "Twitter URL",
+      personal_blog: "Blog URL", 
+      online_resume_url: "Resume Page", 
+      github_url: "Github URL",
       photo: "https://m.media-amazon.com/images/M/MV5BMTY0OTY3ODA3OV5BMl5BanBnXkFtZTcwMzMyMzQ1NQ@@._V1_UY317_CR32,0,214,317_AL_.jpg"
     };
   },
