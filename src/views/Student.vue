@@ -27,7 +27,53 @@
             </button>
           </div>
           <div class="modal-body">
-            SAMPLE CODE TO UPDATE
+            <form v-on:submit.prevent="submit()">
+                    <h1>Edit Profile</h1>
+                    <ul>
+                      <li class="text-danger" v-for="error in errors">{{ error }}</li>
+                    </ul>
+                    <div class="form-group">
+                      <label>First Name:</label> 
+                      <input type="text" class="form-control" v-model="first_name">
+                    </div>
+                    <div class="form-group">
+                      <label>Last Name:</label> 
+                      <input type="text" class="form-control" v-model="last_name">
+                    </div>
+                    <div class="form-group">
+                      <label>Email:</label> 
+                      <input type="text" class="form-control" v-model="email">
+                    </div>
+                    <div class="form-group">
+                      <label>Short Bio</label> 
+                      <input type="text" class="form-control" v-model="short_bio">
+                    </div>
+                    <div class="form-group">
+                      <label>Linked In URL</label> 
+                      <input type="text" class="form-control" v-model="linkedin_url">
+                    </div>
+                    <div class="form-group">
+                      <label>Twitter Handle</label> 
+                      <input type="text" class="form-control" v-model="twitter_handle">
+                    </div>
+                    <div class="form-group">
+                      <label>Personal Blog</label> 
+                      <input type="text" class="form-control" v-model="personal_blog">
+                    </div>
+                    <div class="form-group">
+                      <label>Online Resume URL</label> 
+                      <input type="text" class="form-control" v-model="online_resume_url">
+                    </div>
+                    <div class="form-group">
+                      <label>Github URL</label> 
+                      <input type="text" class="form-control" v-model="github_url">
+                    </div>
+                    <div class="form-group">
+                      <label>Image (optional):</label>
+                      <input type="text" class="form-control" v-model="photo">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                  </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -61,7 +107,30 @@ export default {
     };
   },
   created: function() {},
-  methods: {},
-  computed: {}
+  methods: {
+    submit: function() {
+      var params = {
+        description: this.description,
+        amount: this.amount,
+        photo: this.photo,
+        category_id: this.category_id,
+        expense_type: this.expense_type,
+        date: this.date,
+        trip_id: this.trip_id,
+        itinerary_id: this.itinerary_id
+      };
+      // will implement once backend is complete
+    //   axios
+    //     .post("http://localhost:3000/api/expenses", params)
+    //     .then(response => {
+    //       this.$router.push("/home");
+    //     })
+    //     .catch(error => {
+    //       this.errors = error.response.data.errors;
+    //     });
+    // }
+    
+    },
+  }
 };
 </script>
