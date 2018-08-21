@@ -110,14 +110,17 @@ export default {
   methods: {
     submit: function() {
       var params = {
-        description: this.description,
-        amount: this.amount,
+        first_name: this.first_name,
+        last_name: this.last_name,
+        email: this.email,
+        phone_number: this.phone_number,
+        short_bio: this.short_bio,
+        linkedin_url: this.linkedin_url,
+        twitter_handle: this.twitter_handle,
+        personal_blog: this.personal_blog,
+        online_resume_url: this.online_resume_url,
+        github_url: this.github_url,
         photo: this.photo,
-        category_id: this.category_id,
-        expense_type: this.expense_type,
-        date: this.date,
-        trip_id: this.trip_id,
-        itinerary_id: this.itinerary_id
       };
       // will implement once backend is complete
     //   axios
