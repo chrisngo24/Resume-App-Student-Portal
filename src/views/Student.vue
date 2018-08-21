@@ -73,7 +73,7 @@
                       <input type="text" class="form-control" v-model="photo">
                     </div>
                     <input type="submit" class="btn btn-primary" value="Submit">
-                  </form>
+              </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
