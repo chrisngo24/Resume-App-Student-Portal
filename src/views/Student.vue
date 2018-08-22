@@ -1,22 +1,32 @@
 <template>
   <div class="home container">
     <h1>{{ message }}</h1>
-    <div class="resume-body">
-      <img class="photo" v-bind:src="photo" width="300" alt="Card image cap">
-      <h3>Name: {{ first_name }} {{ last_name }}</h3>
-      <h4>Email: {{ email }}</h4>
-      <h5>Phone: {{ phone_number }}</h5>
-      <h6>Bio: {{ short_bio }}</h6>
-      <ul>
-        <li>LinkedIn: {{ linkedin_url }}</li>
-        <li>Twitter: {{ twitter_handle }}</li>
-        <li>Github: {{ github_url }}</li>
-        <li>Resume: {{ resume }}</li>
-      </ul>
-    </div>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Update Your Resume
-  </button>
+      <div class="card" style="width: 25rem;">
+        <h5 class="card-header">Featured</h5>
+        <div class="card-body">
+          <img class="photo" v-bind:src="photo" width="300" alt="Card image cap">
+          <div class="card">
+          <h3 class="card-title">Name: {{ first_name }} {{ last_name }}</h3>
+          <h4>Email: {{ email }}</h4>
+            <h5>Phone: {{ phone_number }}</h5>
+            <h6>Bio: {{ short_bio }}</h6>
+          </div>
+            <div class="card"><label>Education:</label></div>
+            <div class="card"><label>Experience:</label></div>
+            <div class="card"><label>Skills:</label></div>
+            <div class="card">
+            <ul>
+              <li>LinkedIn: {{ linkedin_url }}</li>
+              <li>Twitter: {{ twitter_handle }}</li>
+              <li>Github: {{ github_url }}</li>
+              <li>Resume: {{ resume }}</li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Update Your Resume
+        </button>
+        </div>
+      </div>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
