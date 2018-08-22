@@ -121,17 +121,6 @@ export default {
         github_url: this.github_url,
         photo: this.photo,
       };
-      // will implement once backend is complete
-    //   axios
-    //     .post("http://localhost:3000/api/expenses", params)
-    //     .then(response => {
-    //       this.$router.push("/home");
-    //     })
-    //     .catch(error => {
-    //       this.errors = error.response.data.errors;
-    //     });
-    // }
-    
     },
   }
 };
