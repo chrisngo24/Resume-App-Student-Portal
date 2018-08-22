@@ -1,25 +1,25 @@
 <template>
   <div class="home container">
     <h1>{{ message }}</h1>
-      <div class="card" style="width: 25rem;">
+      <div class="card" style="width: 25rem;" v-for="student in students">
         <h5 class="card-header">Featured</h5>
         <div class="card-body">
           <img class="photo" v-bind:src="photo" width="300" alt="Card image cap">
           <div class="card">
-          <h3 class="card-title">Name: {{ first_name }} {{ last_name }}</h3>
-          <h4>Email: {{ email }}</h4>
-            <h5>Phone: {{ phone_number }}</h5>
-            <h6>Bio: {{ short_bio }}</h6>
+          <h3 class="card-title">Name: {{ student.first_name }} {{ student.last_name }}</h3>
+          <h4>Email: {{ student.email }}</h4>
+            <h5>Phone: {{ student.phone_number }}</h5>
+            <h6>Bio: {{ student.short_bio }}</h6>
           </div>
-            <div class="card"><label>Education:</label></div>
-            <div class="card"><label>Experience:</label></div>
-            <div class="card"><label>Skills:</label></div>
+            <div class="card"><label>Education: {{ student.education }}</label></div>
+            <div class="card"><label>Experience: {{ student.experiences }}</label></div>
+            <div class="card"><label>Skills: {{ student.skills }}</label></div>
             <div class="card">
             <ul>
-              <li>LinkedIn: {{ linkedin_url }}</li>
-              <li>Twitter: {{ twitter_handle }}</li>
-              <li>Github: {{ github_url }}</li>
-              <li>Resume: {{ resume }}</li>
+              <li>LinkedIn: {{ student.linkedin_url }}</li>
+              <li>Twitter: {{ student.twitter_handle }}</li>
+              <li>Github: {{ student.github_url }}</li>
+              <li>Resume: {{ student.resume }}</li>
             </ul>
           </div>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -98,24 +98,36 @@
 </style>
 
 <script>
+var axios = require("axios");
+
 export default {
   data: function() {
     return {
       message: "Your Resume",
-      first_name: "Jenny",
-      last_name: "Lopez", 
-      email: "jenny@email.com", 
-      phone_number: "(555) 867-5309", 
-      short_bio: "My name is Jenny!, I'm from the block", 
-      linkedin_url: "LinkedIn URL",
-      twitter_handle: "Twitter URL",
-      personal_blog: "Blog URL", 
-      online_resume_url: "Resume Page", 
-      github_url: "Github URL",
-      photo: "https://m.media-amazon.com/images/M/MV5BMTY0OTY3ODA3OV5BMl5BanBnXkFtZTcwMzMyMzQ1NQ@@._V1_UY317_CR32,0,214,317_AL_.jpg"
+      students: [],
+      student: {},
+      first_name: "",
+      last_name: "", 
+      email: "", 
+      phone_number: "", 
+      short_bio: "", 
+      linkedin_url: "",
+      twitter_handle: "",
+      personal_blog: "", 
+      online_resume_url: "", 
+      github_url: "",
+      photo: "https://www.telegraph.co.uk/content/dam/beauty/2017/07/19/TELEMMGLPICT000133558777_trans_NvBQzQNjv4BqAYbq1paTAozN9Q6uyiXH5hBUClMeQ3MJ58n6bA-Dqyg.jpeg?imwidth=480", 
+      errors: []
     };
   },
-  created: function() {},
+  created: function() {
+    axios.get("https://vue-tang-resume-api.herokuapp.com/students").then(
+      function(response) {
+        console.log(response);
+        this.students = response.data;
+      }.bind(this)
+    );
+  },
   methods: {
     submit: function() {
       var params = {
